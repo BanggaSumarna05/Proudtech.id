@@ -10,7 +10,7 @@
     "startCommand": "echo starting!",
     "healthcheckPath": "/",
     "preDeployCommand": [
-      
+      "npm run db:migrate"
     ],
     "sleepApplication": false,
     "useLegacyStacker": false,
