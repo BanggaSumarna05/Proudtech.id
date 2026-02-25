@@ -1,3 +1,5 @@
+@include('admin.partials.summernote')
+
 <div class="space-y-6">
     <div class="space-y-2">
         <label for="title" class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Service
@@ -12,7 +14,7 @@
         <label for="description" class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Detailed
             Description</label>
         <textarea id="description" name="description" rows="4" required
-            class="w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all resize-none">{{ old('description', $service->description ?? '') }}</textarea>
+            class="summernote w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all resize-none">{{ old('description', $service->description ?? '') }}</textarea>
         <x-input-error class="mt-2" :messages="$errors->get('description')" />
     </div>
 

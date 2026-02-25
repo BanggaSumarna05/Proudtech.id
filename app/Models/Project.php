@@ -7,6 +7,8 @@ use Illuminate\Support\Str;
 
 class Project extends Model
 {
+    use \App\Traits\LogsActivity;
+
     const TYPE_CLIENT = 'client';
     const TYPE_INTERNAL = 'internal';
 

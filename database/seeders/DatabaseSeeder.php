@@ -14,6 +14,9 @@ class DatabaseSeeder extends Seeder
             ProjectSeeder::class ,
             TestimonialSeeder::class ,
             SettingSeeder::class ,
+            BenefitSeeder::class ,
+            StatSeeder::class ,
+            StandardSeeder::class ,
         ]);
     }
 }

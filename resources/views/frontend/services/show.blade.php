@@ -15,7 +15,7 @@
                         Layanan
                     </a>
 
-                    <div class="flex flex-col md:flex-row items-start md:items-center gap-8 mb-16">
+                    <div data-aos="fade-right" class="flex flex-col md:flex-row items-start md:items-center gap-8 mb-16">
                         <div
                             class="w-20 h-20 rounded-3xl bg-indigo-600/10 border border-indigo-500/20 flex items-center justify-center text-indigo-500 shadow-2xl shadow-indigo-500/10">
                             <i
@@ -28,9 +28,9 @@
                         </div>
                     </div>
 
-                    <div class="space-y-12">
+                    <div data-aos="fade-up" data-aos-delay="200" class="space-y-12">
                         <div class="prose prose-invert prose-lg max-w-none text-gray-400 leading-relaxed font-medium">
-                            {!! nl2br(e($service->description)) !!}
+                            {!! $service->description !!}
                         </div>
 
                         <div
@@ -58,7 +58,7 @@
                 <div class="lg:w-1/3">
                     <div class="sticky top-32 space-y-10">
                         <!-- CTA Card -->
-                        <div
+                        <div data-aos="fade-left" data-aos-delay="400"
                             class="relative p-10 rounded-[2.5rem] bg-gradient-to-br from-blue-600 to-indigo-700 overflow-hidden shadow-2xl group">
                             <div
                                 class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity">

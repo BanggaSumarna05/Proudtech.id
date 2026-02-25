@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Testimonial extends Model
 {
+    use \App\Traits\LogsActivity;
+
     protected $fillable = [
         'name',
         'company',

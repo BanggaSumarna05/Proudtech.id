@@ -1,5 +1,6 @@
 <x-app-layout>
     <x-slot name="header">Website Configuration</x-slot>
+    @include('admin.partials.summernote')
 
     <div class="space-y-6 max-w-4xl mx-auto">
         @if (session('success'))
@@ -149,7 +150,7 @@
                         <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Meta
                             Description (SEO)</label>
                         <textarea name="meta_description" rows="3"
-                            class="w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all resize-none">{{ $settings['meta_description'] ?? '' }}</textarea>
+                            class="summernote w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all resize-none">{{ $settings['meta_description'] ?? '' }}</textarea>
                     </div>
                 </div>
             </div>
@@ -180,6 +181,229 @@
                             Pre-filled Message</label>
                         <textarea name="whatsapp_message" rows="2"
                             class="w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-green-500 focus:border-green-500 placeholder-gray-600 transition-all resize-none">{{ $settings['whatsapp_message'] ?? '' }}</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Homepage Content -->
+            <div class="bg-[#161923] rounded-3xl border border-white/5 p-8 shadow-xl">
+                <div class="flex items-center gap-4 mb-8">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center border border-indigo-500/20">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold">Homepage Content</h4>
+                        <p class="text-xs text-gray-500">Master copy for your landing page.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Hero Title
+                            (Allows HTML)</label>
+                        <textarea name="home_hero_title" rows="2"
+                            class="summernote w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all resize-none">{{ $settings['home_hero_title'] ?? '' }}</textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Hero
+                            Subtitle</label>
+                        <textarea name="home_hero_subtitle" rows="3"
+                            class="summernote w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all resize-none">{{ $settings['home_hero_subtitle'] ?? '' }}</textarea>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Hero
+                                Audit CTA Label</label>
+                            <input type="text" name="home_hero_cta_audit"
+                                value="{{ $settings['home_hero_cta_audit'] ?? '' }}"
+                                class="w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Hero
+                                Discussion CTA Label</label>
+                            <input type="text" name="home_hero_cta_discuss"
+                                value="{{ $settings['home_hero_cta_discuss'] ?? '' }}"
+                                class="w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Bottom CTA
+                            Title (Allows HTML)</label>
+                        <textarea name="home_cta_title" rows="2"
+                            class="summernote w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all resize-none">{{ $settings['home_cta_title'] ?? '' }}</textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Bottom CTA
+                            Subtitle</label>
+                        <textarea name="home_cta_subtitle" rows="2"
+                            class="summernote w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all resize-none">{{ $settings['home_cta_subtitle'] ?? '' }}</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: About Page Content -->
+            <div class="bg-[#161923] rounded-3xl border border-white/5 p-8 shadow-xl">
+                <div class="flex items-center gap-4 mb-8">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center border border-blue-500/20">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold">About Page Content</h4>
+                        <p class="text-xs text-gray-500">Narrative and brand story management.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">About Hero
+                            Title (Allows HTML)</label>
+                        <textarea name="about_hero_title" rows="2"
+                            class="summernote w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all resize-none">{{ $settings['about_hero_title'] ?? '' }}</textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">About Hero
+                            Subtitle</label>
+                        <textarea name="about_hero_subtitle" rows="2"
+                            class="summernote w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all resize-none">{{ $settings['about_hero_subtitle'] ?? '' }}</textarea>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Narrative
+                                Title</label>
+                            <input type="text" name="about_narrative_title"
+                                value="{{ $settings['about_narrative_title'] ?? '' }}"
+                                class="w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Narrative
+                                Subtitle (Allows HTML)</label>
+                            <input type="text" name="about_narrative_subtitle"
+                                value="{{ $settings['about_narrative_subtitle'] ?? '' }}"
+                                class="w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Narrative
+                            Content</label>
+                        <textarea name="about_narrative_content" rows="4"
+                            class="summernote w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all resize-none">{{ $settings['about_narrative_content'] ?? '' }}</textarea>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-6 bg-white/5 rounded-2xl space-y-4">
+                            <h5 class="text-white font-bold text-sm">Goal / Purpose</h5>
+                            <div class="space-y-2">
+                                <label
+                                    class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Title</label>
+                                <input type="text" name="about_narrative_goal_title"
+                                    value="{{ $settings['about_narrative_goal_title'] ?? '' }}"
+                                    class="w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all">
+                            </div>
+                            <div class="space-y-2">
+                                <label
+                                    class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Description</label>
+                                <textarea name="about_narrative_goal_desc" rows="2"
+                                    class="summernote w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all resize-none">{{ $settings['about_narrative_goal_desc'] ?? '' }}</textarea>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-white/5 rounded-2xl space-y-4">
+                            <h5 class="text-white font-bold text-sm">Target / ROI</h5>
+                            <div class="space-y-2">
+                                <label
+                                    class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Title</label>
+                                <input type="text" name="about_narrative_target_title"
+                                    value="{{ $settings['about_narrative_target_title'] ?? '' }}"
+                                    class="w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all">
+                            </div>
+                            <div class="space-y-2">
+                                <label
+                                    class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Description</label>
+                                <textarea name="about_narrative_target_desc" rows="2"
+                                    class="summernote w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all resize-none">{{ $settings['about_narrative_target_desc'] ?? '' }}</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Standards
+                                Section Title</label>
+                            <input type="text" name="about_standards_title"
+                                value="{{ $settings['about_standards_title'] ?? '' }}"
+                                class="w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Standards
+                                Section Subtitle (Allows HTML)</label>
+                            <input type="text" name="about_standards_subtitle"
+                                value="{{ $settings['about_standards_subtitle'] ?? '' }}"
+                                class="w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Contact Page Content -->
+            <div class="bg-[#161923] rounded-3xl border border-white/5 p-8 shadow-xl">
+                <div class="flex items-center gap-4 mb-8">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center border border-blue-500/20">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold">Contact Page Content</h4>
+                        <p class="text-xs text-gray-500">CTA and contact narrative management.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Contact
+                                Hero Title (Allows HTML)</label>
+                            <input type="text" name="contact_hero_title"
+                                value="{{ $settings['contact_hero_title'] ?? '' }}"
+                                class="w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Contact
+                                Hero Subtitle</label>
+                            <input type="text" name="contact_hero_subtitle"
+                                value="{{ $settings['contact_hero_subtitle'] ?? '' }}"
+                                class="w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all">
+                        </div>
+                    </div>
+
+                    <div class="p-6 bg-white/5 rounded-2xl space-y-6">
+                        <h5 class="text-white font-bold text-sm">Interface Card Content</h5>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Card
+                                    Title</label>
+                                <input type="text" name="contact_interface_title"
+                                    value="{{ $settings['contact_interface_title'] ?? '' }}"
+                                    class="w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Reply
+                                    Latency Text</label>
+                                <input type="text" name="contact_reply_latency"
+                                    value="{{ $settings['contact_reply_latency'] ?? '' }}"
+                                    class="w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all">
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Card
+                                Description</label>
+                            <textarea name="contact_interface_subtitle" rows="2"
+                                class="summernote w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all resize-none">{{ $settings['contact_interface_subtitle'] ?? '' }}</textarea>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -227,4 +451,6 @@
             </div>
         </form>
     </div>
+
+
 </x-app-layout>

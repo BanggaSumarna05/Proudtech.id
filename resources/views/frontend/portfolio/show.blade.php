@@ -46,7 +46,7 @@
                         <div class="absolute -left-10 top-0 text-7xl font-black text-white/[0.02] select-none">01</div>
                         <h2 class="text-2xl font-black text-white mb-10 uppercase tracking-tight">Tujuan Proyek</h2>
                         <div class="prose prose-invert prose-lg max-w-none text-gray-400 leading-relaxed font-medium">
-                            {!! nl2br(e($project->description)) !!}
+                            {!! $project->description !!}
                         </div>
                     </section>
 

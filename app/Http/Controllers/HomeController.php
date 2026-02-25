@@ -6,6 +6,8 @@ use App\Models\Project;
 use App\Models\Service;
 use App\Models\Setting;
 use App\Models\Testimonial;
+use App\Models\Benefit;
+use App\Models\Stat;
 
 class HomeController extends Controller
 {
@@ -14,8 +16,10 @@ class HomeController extends Controller
         $services = Service::active()->take(6)->get();
         $projects = Project::published()->latest()->take(4)->get();
         $testimonials = Testimonial::published()->latest()->take(3)->get();
+        $benefits = Benefit::orderBy('order')->get();
+        $stats = Stat::orderBy('order')->get();
         $waUrl = Setting::whatsappUrl();
 
-        return view('home.index', compact('services', 'projects', 'testimonials', 'waUrl'));
+        return view('home.index', compact('services', 'projects', 'testimonials', 'benefits', 'stats', 'waUrl'));
     }
 }

@@ -9,19 +9,20 @@
             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/10 mb-8">
                 <span class="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400">Vault Eksklusif</span>
             </div>
-            <h1
+            <h1 data-aos="fade-up"
                 class="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white mb-10 tracking-tighter leading-[0.9] uppercase">
                 Artefak <span class="text-gradient">Digital.</span>
             </h1>
-            <p class="text-xl md:text-2xl text-slate-400 font-medium leading-relaxed max-w-3xl mx-auto">
+            <p data-aos="fade-up" data-aos-delay="200"
+                class="text-xl md:text-2xl text-slate-400 font-medium leading-relaxed max-w-3xl mx-auto">
                 Koleksi sistem berdaya tinggi dan identitas brand yang memimpin industri.
             </p>
         </div>
 
         <div class="max-w-7xl mx-auto px-6 lg:px-10">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                @foreach ($projects as $project)
-                    <div
+                @foreach ($projects as $index => $project)
+                    <div data-aos="fade-up" data-aos-delay="{{ $index * 150 }}"
                         class="group relative bg-[#0A0A0F] rounded-[3rem] overflow-hidden border border-white/[0.03] hover:border-blue-500/30 transition-all duration-700">
                         <!-- Image Container -->
                         <div class="aspect-[16/10] overflow-hidden relative">

@@ -11,8 +11,8 @@
 
         <div class="max-w-7xl mx-auto px-6 lg:px-10 py-32 relative z-10">
             <div class="flex flex-col items-center text-center">
-                <div
-                    class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass border border-white/10 mb-10 animate-fade-in shadow-2xl shadow-blue-500/10">
+                <div data-aos="fade-down"
+                    class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass border border-white/10 mb-10 shadow-2xl shadow-blue-500/10">
                     <div class="flex -space-x-2">
                         @for ($i = 0; $i < 3; $i++)
                             <div
@@ -34,30 +34,31 @@
                     </div>
                 </div>
 
-                <h1
+                <h1 data-aos="fade-up" data-aos-delay="200"
                     class="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white mb-10 tracking-tighter leading-[0.9] uppercase max-w-5xl">
-                    Membangun <br>
-                    <span class="text-gradient">Brand Digital</span> <br>
-                    <span class="text-white/40">Yang Menghasilkan.</span>
+                    {!! \App\Models\Setting::get(
+                        'home_hero_title',
+                        'Membangun <br> <span class="text-gradient">Brand Digital</span> <br> <span class="text-white/40">Yang Menghasilkan.</span>',
+                    ) !!}
                 </h1>
 
-                <p class="max-w-3xl text-slate-400 text-base md:text-2xl font-medium leading-relaxed mb-16 animate-fade-in"
-                    style="animation-delay: 0.2s;">
-                    Kami membantu bisnis berkembang melalui <span class="text-white">website premium</span>,
-                    <span class="text-white">sistem digital</span>, dan <span class="text-white">branding</span> siap
-                    scale
-                    yang dirancang untuk dominasi pasar.
+                <p data-aos="fade-up" data-aos-delay="400"
+                    class="max-w-3xl text-slate-400 text-base md:text-2xl font-medium leading-relaxed mb-16">
+                    {!! \App\Models\Setting::get(
+                        'home_hero_subtitle',
+                        'Kami membantu bisnis berkembang melalui <span class="text-white">website premium</span>, <span class="text-white">sistem digital</span>, dan <span class="text-white">branding</span> siap scale yang dirancang untuk dominasi pasar.',
+                    ) !!}
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 animate-fade-in" style="animation-delay: 0.4s;">
+                <div data-aos="fade-up" data-aos-delay="600" class="flex flex-col sm:flex-row gap-4 sm:gap-6">
                     <a href="{{ \App\Models\Setting::whatsappUrl('Halo Proud Tech! Saya tertarik dengan Audit Website GRATIS.') }}"
                         class="px-10 py-5 sm:px-12 sm:py-7 bg-white text-black rounded-2xl font-black text-[10px] sm:text-xs uppercase tracking-[0.2em] transform transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-white/10 hover:shadow-white/20">
-                        🔥 Audit Website GRATIS
+                        {{ \App\Models\Setting::get('home_hero_cta_audit', '🔥 Audit Website GRATIS') }}
                     </a>
                     <a href="{{ \App\Models\Setting::whatsappUrl('Halo Proud Tech! Saya ingin diskusi proyek selama 30 menit.') }}"
                         target="_blank"
                         class="px-10 py-5 sm:px-12 sm:py-7 glass border border-white/10 text-white rounded-2xl font-black text-[10px] sm:text-xs uppercase tracking-[0.2em] transform transition-all hover:bg-white/[0.08] hover:scale-105 active:scale-95 shadow-xl">
-                        💬 Diskusi Proyek 30 Menit
+                        {{ \App\Models\Setting::get('home_hero_cta_discuss', '💬 Diskusi Proyek 30 Menit') }}
                     </a>
                 </div>
             </div>
@@ -81,17 +82,17 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                @foreach ([['icon' => 'fas fa-chart-line', 'title' => 'Fokus Hasil', 'desc' => 'Kami tidak hanya membangun fitur; kami membangun mesin pertumbuhan yang meningkatkan ROI Anda.'], ['icon' => 'fas fa-shield-alt', 'title' => 'Keamanan Sistem', 'desc' => 'Arsitektur kelas dunia yang memastikan data Anda aman dan performa sistem tetap stabil 24/7.'], ['icon' => 'fas fa-handshake', 'title' => 'Partner Strategis', 'desc' => 'Kami adalah ekstensi dari tim Anda, fokus pada inovasi jangka panjang untuk skalabilitas bisnis.']] as $item)
-                    <div
+                @foreach ($benefits as $index => $benefit)
+                    <div data-aos="fade-up" data-aos-delay="{{ $index * 100 }}"
                         class="p-8 md:p-10 rounded-[2.5rem] glass border border-white/5 hover:border-blue-500/30 transition-all duration-500 group">
                         <div
                             class="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-500 mb-8 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
-                            <i class="{{ $item['icon'] }} text-xl"></i>
+                            <i class="{{ $benefit->icon }} text-xl"></i>
                         </div>
-                        <h4 class="text-xl font-black text-white mb-4 uppercase tracking-tight">{{ $item['title'] }}
+                        <h4 class="text-xl font-black text-white mb-4 uppercase tracking-tight">{{ $benefit->title }}
                         </h4>
                         <p class="text-slate-500 leading-relaxed text-sm group-hover:text-slate-400 transition-colors">
-                            {{ $item['desc'] }}</p>
+                            {!! $benefit->description !!}</p>
                     </div>
                 @endforeach
             </div>
@@ -102,12 +103,12 @@
     <section class="py-16 md:py-24 border-y border-white/[0.05] bg-slate-950/50 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 lg:px-10">
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-8">
-                @foreach ([['num' => '75+', 'label' => 'Implementasi Global'], ['num' => '99%', 'label' => 'Waktu Aktif Sistem'], ['num' => '12', 'label' => 'Spesialis Inti'], ['num' => '24/7', 'label' => 'Pengawasan Teknis']] as $stat)
-                    <div class="group text-center lg:text-left">
+                @foreach ($stats as $index => $stat)
+                    <div data-aos="zoom-in" data-aos-delay="{{ $index * 100 }}" class="group text-center lg:text-left">
                         <p
                             class="text-4xl md:text-5xl font-black text-white mb-2 group-hover:text-blue-500 transition-colors duration-500">
-                            {{ $stat['num'] }}</p>
-                        <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-600">{{ $stat['label'] }}
+                            {{ $stat->number }}</p>
+                        <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-600">{{ $stat->label }}
                         </p>
                     </div>
                 @endforeach
@@ -134,8 +135,8 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                @foreach ($services as $service)
-                    <div
+                @foreach ($services as $index => $service)
+                    <div data-aos="fade-up" data-aos-delay="{{ $index * 100 }}"
                         class="group relative p-12 rounded-[2.5rem] glass border border-white/5 hover:border-indigo-500/30 transition-all duration-700 overflow-hidden">
                         <div
                             class="absolute -top-10 -right-10 w-40 h-40 bg-indigo-600/10 rounded-full blur-[80px] group-hover:bg-indigo-600/20 transition-all duration-700">
@@ -158,7 +159,7 @@
                             </h4>
                             <p
                                 class="text-slate-500 leading-relaxed text-sm mb-10 group-hover:text-slate-300 transition-colors">
-                                {{ Str::limit($service->description, 100) }}
+                                {{ Str::limit(strip_tags($service->description), 100) }}
                             </p>
                             <a href="{{ route('services.show', $service->slug) }}"
                                 class="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-indigo-400 hover:text-white transition-all">
@@ -190,8 +191,8 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                @foreach ($projects as $project)
-                    <div
+                @foreach ($projects as $index => $project)
+                    <div data-aos="{{ $index % 2 == 0 ? 'fade-right' : 'fade-left' }}"
                         class="group relative rounded-[3rem] overflow-hidden bg-slate-900 border border-white/5 transition-all duration-700 hover:shadow-2xl hover:shadow-blue-500/10">
                         <div class="aspect-[16/10] overflow-hidden relative">
                             @if ($project->thumbnail)
@@ -258,8 +259,8 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                @foreach ($testimonials as $testimonial)
-                    <div
+                @foreach ($testimonials as $index => $testimonial)
+                    <div data-aos="flip-left" data-aos-delay="{{ $index * 150 }}"
                         class="p-12 rounded-[2.5rem] glass border border-white/[0.05] flex flex-col items-center text-center group hover:border-blue-500/30 transition-all duration-500 shadow-2xl shadow-black/40">
                         <div
                             class="flex gap-1 text-yellow-500 mb-8 transform group-hover:scale-110 transition-transform">
@@ -268,7 +269,7 @@
                             @endfor
                         </div>
                         <blockquote class="text-lg md:text-xl text-slate-300 font-medium leading-relaxed mb-12 italic">
-                            "{{ $testimonial->message }}"
+                            "{!! $testimonial->message !!}"
                         </blockquote>
                         <div class="mt-auto">
                             <div
@@ -298,11 +299,16 @@
 
         <div class="max-w-5xl mx-auto px-6 relative z-10 text-center">
             <h2 class="text-4xl md:text-8xl font-black text-white mb-10 tracking-tighter leading-[0.9] uppercase">
-                Siap Membangun <br> <span class="text-gradient">Sistem Digital</span> <br> <span
-                    class="text-white/20">Yang Serius?</span>
+                {!! \App\Models\Setting::get(
+                    'home_cta_title',
+                    'Siap Membangun <br> <span class="text-gradient">Sistem Digital</span> <br> <span class="text-white/20">Yang Serius?</span>',
+                ) !!}
             </h2>
             <p class="text-lg md:text-2xl text-slate-400 font-medium mb-16 max-w-2xl mx-auto">
-                Jangan biarkan kompetitor memimpin. Mulai rekayasa sistem Anda sekarang dengan bantuan ahli kami.
+                {!! \App\Models\Setting::get(
+                    'home_cta_subtitle',
+                    'Jangan biarkan kompetitor memimpin. Mulai rekayasa sistem Anda sekarang dengan bantuan ahli kami.',
+                ) !!}
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-6">
                 <a href="{{ \App\Models\Setting::whatsappUrl('Halo Proud Tech! Saya ingin mulai konsultasi sekarang.') }}"

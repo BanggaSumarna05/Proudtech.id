@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
+    use \App\Traits\LogsActivity;
+
     const STATUS_ACTIVE = true;
     const STATUS_INACTIVE = false;
     protected $fillable = [

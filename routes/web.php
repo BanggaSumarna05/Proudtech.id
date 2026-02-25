@@ -41,6 +41,9 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'is_admin'])->group(
     Route::resource('projects', AdminProjectController::class);
     Route::delete('projects/{project}/images/{image}', [AdminProjectController::class , 'destroyImage'])->name('projects.images.destroy');
     Route::resource('testimonials', AdminTestimonialController::class);
+    Route::resource('benefits', \App\Http\Controllers\Admin\BenefitController::class);
+    Route::resource('stats', \App\Http\Controllers\Admin\StatController::class);
+    Route::resource('standards', \App\Http\Controllers\Admin\StandardController::class);
     Route::get('settings', [SettingController::class , 'index'])->name('settings.index');
     Route::post('settings', [SettingController::class , 'update'])->name('settings.update');
 });

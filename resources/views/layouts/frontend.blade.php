@@ -48,6 +48,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <!-- Styles / Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -129,6 +132,41 @@
 
         .glow-blue {
             filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.3));
+        }
+
+        /* Custom Cursor */
+        .cursor-follower {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease-out, opacity 0.3s ease;
+            transform: translate(-50%, -50%);
+            backdrop-filter: blur(4px);
+        }
+
+        .cursor-dot {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: #3b82f6;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 15px #3b82f6;
+        }
+
+        @media (max-width: 768px) {
+
+            .cursor-follower,
+            .cursor-dot {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -364,6 +402,47 @@
             </span>
         </div>
     </a>
+    <!-- Custom Cursor Elements -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- AOS & Custom Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+            easing: 'ease-out-expo'
+        });
+
+        // Custom Cursor Logic
+        const dot = document.querySelector('.cursor-dot');
+        const follower = document.querySelector('.cursor-follower');
+
+        window.addEventListener('mousemove', (e) => {
+            dot.style.left = e.clientX + 'px';
+            dot.style.top = e.clientY + 'px';
+
+            setTimeout(() => {
+                follower.style.left = e.clientX + 'px';
+                follower.style.top = e.clientY + 'px';
+            }, 50);
+        });
+
+        // Hover Effect for links
+        document.querySelectorAll('a, button').forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                follower.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                follower.style.background = 'rgba(59, 130, 246, 0.2)';
+            });
+            link.addEventListener('mouseleave', () => {
+                follower.style.transform = 'translate(-50%, -50%) scale(1)';
+                follower.style.background = 'rgba(59, 130, 246, 0.1)';
+            });
+        });
+    </script>
 </body>
 
 </html>

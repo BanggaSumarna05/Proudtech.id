@@ -29,6 +29,7 @@
             display: none !important;
         }
     </style>
+    @stack('styles')
 </head>
 
 <body class="h-full antialiased font-sans text-gray-200">
@@ -95,6 +96,33 @@
                             class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {{ request()->routeIs('admin.testimonials.*') ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20' : 'text-gray-400 hover:bg-white/5 hover:text-white' }}">
                             <i class="fas fa-comment-dots w-5"></i>
                             <span class="font-semibold text-sm">Testimonials</span>
+                        </div>
+                    </x-responsive-nav-link>
+
+                    <x-responsive-nav-link href="{{ route('admin.benefits.index') }}" :active="request()->routeIs('admin.benefits.*')"
+                        class="!bg-transparent !border-none !p-0">
+                        <div
+                            class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {{ request()->routeIs('admin.benefits.*') ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20' : 'text-gray-400 hover:bg-white/5 hover:text-white' }}">
+                            <i class="fas fa-star w-5"></i>
+                            <span class="font-semibold text-sm">Benefits</span>
+                        </div>
+                    </x-responsive-nav-link>
+
+                    <x-responsive-nav-link href="{{ route('admin.stats.index') }}" :active="request()->routeIs('admin.stats.*')"
+                        class="!bg-transparent !border-none !p-0">
+                        <div
+                            class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {{ request()->routeIs('admin.stats.*') ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20' : 'text-gray-400 hover:bg-white/5 hover:text-white' }}">
+                            <i class="fas fa-chart-pie w-5"></i>
+                            <span class="font-semibold text-sm">Statistics</span>
+                        </div>
+                    </x-responsive-nav-link>
+
+                    <x-responsive-nav-link href="{{ route('admin.standards.index') }}" :active="request()->routeIs('admin.standards.*')"
+                        class="!bg-transparent !border-none !p-0">
+                        <div
+                            class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {{ request()->routeIs('admin.standards.*') ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20' : 'text-gray-400 hover:bg-white/5 hover:text-white' }}">
+                            <i class="fas fa-microchip w-5"></i>
+                            <span class="font-semibold text-sm">Standards</span>
                         </div>
                     </x-responsive-nav-link>
 
@@ -174,6 +202,7 @@
             </main>
         </div>
     </div>
+    @stack('scripts')
 </body>
 
 </html>

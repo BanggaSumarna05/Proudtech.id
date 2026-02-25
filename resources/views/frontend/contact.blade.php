@@ -16,17 +16,17 @@
                         <span class="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400">Arsitek
                             Digital</span>
                     </div>
-                    <h1
+                    <h1 data-aos="fade-up"
                         class="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white mb-10 tracking-tighter leading-[0.9] uppercase">
-                        Asal-Usul <span class="text-gradient">Kami.</span>
+                        {!! \App\Models\Setting::get('contact_hero_title', 'Mulai <span class="text-gradient">Koneksi.</span>') !!}
                     </h1>
-                    <p class="text-lg md:text-2xl text-slate-400 font-medium leading-relaxed mb-16">
-                        Baik Anda sedang memperbesar kerajaan bisnis atau meluncurkan revolusi, spesialis kami siap
-                        membangun lintasan digital Anda.
+                    <p data-aos="fade-up" data-aos-delay="200"
+                        class="text-lg md:text-2xl text-slate-400 font-medium leading-relaxed mb-16">
+                        {{ \App\Models\Setting::get('contact_hero_subtitle', 'Baik Anda sedang memperbesar kerajaan bisnis atau meluncurkan revolusi, spesialis kami siap membangun lintasan digital Anda.') }}
                     </p>
 
                     <div class="space-y-10">
-                        <div class="flex items-center gap-8 group">
+                        <div data-aos="fade-right" data-aos-delay="400" class="flex items-center gap-8 group">
                             <div
                                 class="w-16 h-16 rounded-2xl glass border border-white/10 flex items-center justify-center text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
                                 <i class="fas fa-envelope text-xl"></i>
@@ -39,7 +39,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="flex items-center gap-8 group">
+                        <div data-aos="fade-right" data-aos-delay="600" class="flex items-center gap-8 group">
                             <div
                                 class="w-16 h-16 rounded-2xl glass border border-white/10 flex items-center justify-center text-green-500 group-hover:bg-green-600 group-hover:text-white transition-all duration-500">
                                 <i class="fab fa-whatsapp text-2xl"></i>
@@ -56,16 +56,16 @@
                 </div>
 
                 <!-- Interface Card -->
-                <div
+                <div data-aos="zoom-in" data-aos-delay="800"
                     class="relative p-12 lg:p-16 rounded-[3rem] glass border border-white/10 shadow-2xl overflow-hidden group">
                     <div
                         class="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl group-hover:bg-blue-600/20 transition-colors">
                     </div>
 
-                    <h3 class="text-3xl font-black text-white mb-6 uppercase tracking-tight">Akses Prioritas</h3>
+                    <h3 class="text-3xl font-black text-white mb-6 uppercase tracking-tight">
+                        {{ \App\Models\Setting::get('contact_interface_title', 'Akses Prioritas') }}</h3>
                     <p class="text-gray-500 font-medium mb-12 leading-relaxed">
-                        Lewati saluran tradisional. Terhubung langsung dengan arsitek utama kami untuk konsultasi
-                        strategis yang cepat.
+                        {{ \App\Models\Setting::get('contact_interface_subtitle', 'Lewati saluran tradisional. Terhubung langsung dengan arsitek utama kami untuk konsultasi strategis yang cepat.') }}
                     </p>
 
                     <div class="space-y-6">
@@ -74,7 +74,7 @@
                             Mulai Protokol <i class="fab fa-whatsapp ml-3 text-lg text-green-500"></i>
                         </a>
                         <p class="text-center text-[10px] font-black text-gray-700 uppercase tracking-widest">
-                            Rata-rata latensi balasan: &lt; 120 Menit
+                            {{ \App\Models\Setting::get('contact_reply_latency', 'Rata-rata latensi balasan: < 120 Menit') }}
                         </p>
                     </div>
 

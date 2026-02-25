@@ -8,6 +8,7 @@ class AboutController extends Controller
 {
     public function index()
     {
-        return view('frontend.about');
+        $standards = \App\Models\Standard::orderBy('order')->get();
+        return view('frontend.about', compact('standards'));
     }
 }

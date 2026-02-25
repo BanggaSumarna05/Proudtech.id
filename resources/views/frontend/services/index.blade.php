@@ -11,18 +11,19 @@
                     <span class="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400">Matriks
                         Ekosistem</span>
                 </div>
-                <h1
+                <h1 data-aos="fade-up"
                     class="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white mb-10 tracking-tighter leading-[0.9] uppercase">
                     Matriks <span class="text-gradient">Layanan.</span>
                 </h1>
-                <p class="text-xl md:text-2xl text-slate-400 font-medium leading-relaxed max-w-2xl mx-auto">
+                <p data-aos="fade-up" data-aos-delay="200"
+                    class="text-xl md:text-2xl text-slate-400 font-medium leading-relaxed max-w-2xl mx-auto">
                     Arsitektur rekayasa digital yang dirancang untuk skala, keamanan, dan dominasi pasar.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                @foreach ($services as $service)
-                    <div
+                @foreach ($services as $index => $service)
+                    <div data-aos="fade-up" data-aos-delay="{{ $index * 100 }}"
                         class="group relative p-12 rounded-[2.5rem] glass border border-white/5 hover:border-indigo-500/30 transition-all duration-700 overflow-hidden">
                         <div
                             class="absolute -top-10 -right-10 w-40 h-40 bg-indigo-600/10 rounded-full blur-[80px] group-hover:bg-indigo-600/20 transition-all duration-700">
@@ -52,7 +53,7 @@
     </section>
 
     <!-- Custom Solutions CTA -->
-    <section class="py-20 md:py-40 relative">
+    <section data-aos="zoom-in" class="py-20 md:py-40 relative">
         <div class="max-w-7xl mx-auto px-6 lg:px-10">
             <div
                 class="relative p-12 lg:p-24 rounded-[3rem] bg-gradient-to-br from-blue-600 to-indigo-700 overflow-hidden shadow-2xl">

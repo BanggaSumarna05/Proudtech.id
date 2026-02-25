@@ -11,7 +11,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+    //
     }
 
     /**
@@ -19,6 +19,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        \App\Models\Project::observe(\App\Observers\ProjectObserver::class);
+        \App\Models\Service::observe(\App\Observers\ServiceObserver::class);
+        \App\Models\Testimonial::observe(\App\Observers\TestimonialObserver::class);
+        \App\Models\Setting::observe(\App\Observers\SettingObserver::class);
     }
 }

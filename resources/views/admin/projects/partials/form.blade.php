@@ -1,3 +1,5 @@
+@include('admin.partials.summernote')
+
 <div class="space-y-8">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="space-y-2">
@@ -36,7 +38,7 @@
         <label for="description" class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Detailed
             Case Study</label>
         <textarea id="description" name="description" rows="6"
-            class="w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all resize-none">{{ old('description', $project->description ?? '') }}</textarea>
+            class="summernote w-full bg-white/[0.03] border-white/5 rounded-xl px-4 py-3 text-white focus:ring-blue-500 focus:border-blue-500 placeholder-gray-600 transition-all resize-none">{{ old('description', $project->description ?? '') }}</textarea>
         <x-input-error class="mt-2" :messages="$errors->get('description')" />
     </div>
 
