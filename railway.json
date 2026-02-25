@@ -10,7 +10,7 @@
     "startCommand": "echo starting!",
     "healthcheckPath": "/",
     "preDeployCommand": [
-      "npm run db:migrate"
+      "php artisan migrate --force"
     ],
     "sleepApplication": false,
     "useLegacyStacker": false,
