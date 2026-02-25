@@ -1,26 +1,14 @@
 {
   "$schema": "https://railway.com/railway.schema.json",
   "build": {
-    "builder": "NIXPACKS",
-    "buildCommand": "echo building!"
+    "builder": "NIXPACKS"
   },
   "deploy": {
     "runtime": "V2",
     "numReplicas": 1,
-    "startCommand": "echo starting!",
     "healthcheckPath": "/",
-    "preDeployCommand": [
-      "php artisan migrate --force"
-    ],
+    "preDeployCommand": "php artisan migrate --force",
     "sleepApplication": false,
-    "useLegacyStacker": false,
-    "ipv6EgressEnabled": false,
-    "multiRegionConfig": {
-      "asia-southeast1-eqsg3a": {
-        "numReplicas": 1
-      }
-    },
-    "restartPolicyType": "NEVER",
-    "healthcheckTimeout": 100
+    "restartPolicyType": "ON_FAILURE"
   }
 }
