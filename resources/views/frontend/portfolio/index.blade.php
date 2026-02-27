@@ -1,93 +1,73 @@
 <x-frontend-layout>
-    <section class="pt-8 md:pt-14 pb-32 md:pb-48 relative overflow-hidden">
+    <section class="pt-8 md:pt-14 pb-20 md:pb-40 relative overflow-hidden">
         <!-- Background Decor -->
         <div
             class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(139,92,246,0.05),transparent_50%)]">
         </div>
 
-        <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10 text-center mb-32">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/10 mb-8">
-                <span class="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400">Vault Eksklusif</span>
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 relative z-10 text-center mb-12 sm:mb-16 md:mb-24">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/10 mb-6 sm:mb-8">
+                <span class="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400">Portofolio Proyek</span>
             </div>
             <h1 data-aos="fade-up"
-                class="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white mb-10 tracking-tighter leading-[0.9] uppercase">
-                Artefak <span class="text-gradient">Digital.</span>
+                class="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black text-white mb-6 sm:mb-10 tracking-tighter leading-[0.9] uppercase">
+                Proyek <span class="text-gradient">Kami.</span>
             </h1>
             <p data-aos="fade-up" data-aos-delay="200"
-                class="text-xl md:text-2xl text-slate-400 font-medium leading-relaxed max-w-3xl mx-auto">
-                Koleksi sistem berdaya tinggi dan identitas brand yang memimpin industri.
+                class="text-base sm:text-xl md:text-2xl text-slate-400 font-medium leading-relaxed max-w-2xl mx-auto px-2">
+                Kumpulan proyek nyata yang sudah kami kerjakan bersama berbagai bisnis di Indonesia.
             </p>
         </div>
 
-        <div class="max-w-7xl mx-auto px-6 lg:px-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 relative z-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
                 @foreach ($projects as $index => $project)
-                    <div data-aos="fade-up" data-aos-delay="{{ $index * 150 }}"
-                        class="group relative bg-[#0A0A0F] rounded-[3rem] overflow-hidden border border-white/[0.03] hover:border-blue-500/30 transition-all duration-700">
-                        <!-- Image Container -->
+                    <div data-aos="fade-up" data-aos-delay="{{ $index * 100 }}"
+                        class="group relative rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden bg-slate-900 border border-white/5 transition-all duration-700 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1">
+                        <!-- Thumbnail -->
                         <div class="aspect-[16/10] overflow-hidden relative">
                             @if ($project->thumbnail)
                                 <img src="{{ \Illuminate\Support\Facades\Storage::disk('s3')->url($project->thumbnail) }}"
                                     alt="{{ $project->title }}"
-                                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-[1.5s] opacity-40 group-hover:opacity-100">
+                                    class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-[1.5s]">
                             @else
-                                <div
-                                    class="w-full h-full bg-[#050505] flex items-center justify-center text-gray-800 font-black tracking-tighter italic">
-                                    PROUD TECH
+                                <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                    <i class="fas fa-image text-slate-600 text-4xl"></i>
                                 </div>
                             @endif
                             <div
-                                class="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-transparent to-transparent opacity-80 transition-opacity">
+                                class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent">
                             </div>
-
-                            <div class="absolute top-8 left-8 flex items-center gap-3">
+                            <div class="absolute top-4 left-4">
                                 <span
-                                    class="px-4 py-1.5 rounded-full glass border border-white/10 text-[10px] font-black uppercase tracking-widest text-blue-400">
-                                    {{ $project->type == 'client' ? 'Produksi' : 'Lab' }}
+                                    class="px-3 py-1 rounded-full glass border border-white/10 text-[9px] font-black uppercase tracking-widest text-blue-400">
+                                    {{ $project->type == 'client' ? 'Client' : 'R&D' }}
                                 </span>
                             </div>
-
-                            <a href="{{ route('portfolio.show', $project->slug) }}"
-                                class="absolute top-8 right-8 w-14 h-14 rounded-full glass border border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                                <i class="fas fa-arrow-right -rotate-45"></i>
-                            </a>
                         </div>
 
                         <!-- Content -->
-                        <div class="p-12">
+                        <div class="p-6 sm:p-8">
                             <h2
-                                class="text-3xl font-black text-white mb-4 uppercase tracking-tight group-hover:text-blue-400 transition-colors">
-                                {{ $project->title }}
-                            </h2>
-                            <p class="text-gray-500 leading-relaxed text-sm mb-10 line-clamp-2">
-                                {{ $project->overview }}
-                            </p>
-
-                            <div class="pt-8 border-t border-white/[0.03] flex items-center justify-between">
-                                <div class="flex flex-wrap gap-3">
-                                    @if (is_array($project->tech_stack))
-                                        @foreach (array_slice($project->tech_stack, 0, 3) as $tech)
-                                            <span
-                                                class="text-[9px] font-black uppercase tracking-widest text-gray-600 px-3 py-1 bg-white/[0.02] border border-white/5 rounded-lg">{{ $tech }}</span>
-                                        @endforeach
-                                        @if (count($project->tech_stack) > 3)
-                                            <span
-                                                class="text-[9px] font-black uppercase tracking-widest text-gray-800">+{{ count($project->tech_stack) - 3 }}</span>
-                                        @endif
-                                    @endif
+                                class="text-lg sm:text-xl font-black text-white mb-2 sm:mb-3 uppercase tracking-tight group-hover:text-blue-400 transition-colors line-clamp-2">
+                                {{ $project->title }}</h2>
+                            @if ($project->tech_stack)
+                                <div class="flex flex-wrap gap-1.5 mb-4 sm:mb-6">
+                                    @foreach (array_slice((array) $project->tech_stack, 0, 3) as $tech)
+                                        <span
+                                            class="px-2 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest text-slate-500 glass border border-white/5">
+                                            {{ $tech }}
+                                        </span>
+                                    @endforeach
                                 </div>
-                                <span
-                                    class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 group-hover:text-white transition-colors">
-                                    {{ $project->client_name ?? 'Rahasia' }}
-                                </span>
-                            </div>
+                            @endif
+                            <a href="{{ route('portfolio.show', $project->slug) }}"
+                                class="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-blue-400 hover:text-white transition-all">
+                                Lihat Proyek <i class="fas fa-arrow-right text-[8px]"></i>
+                            </a>
                         </div>
                     </div>
                 @endforeach
-            </div>
-
-            <div class="mt-32 flex justify-center">
-                {{ $projects->links('pagination::tailwind') }}
             </div>
         </div>
     </section>
