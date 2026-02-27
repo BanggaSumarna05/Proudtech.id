@@ -1,5 +1,5 @@
 <x-frontend-layout>
-    <section class="py-32 md:py-48 relative overflow-hidden">
+    <section class="pt-8 md:pt-14 pb-32 md:pb-48 relative overflow-hidden">
         <!-- Background Decor -->
         <div
             class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(139,92,246,0.05),transparent_50%)]">

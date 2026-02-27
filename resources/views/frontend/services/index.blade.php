@@ -1,5 +1,5 @@
 <x-frontend-layout>
-    <section class="py-20 md:py-48 relative overflow-hidden">
+    <section class="pt-8 md:pt-14 pb-20 md:pb-48 relative overflow-hidden">
         <!-- Background Accents -->
         <div
             class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.05),transparent_50%)]">

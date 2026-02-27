@@ -1,5 +1,5 @@
 <x-frontend-layout>
-    <section class="py-20 md:py-40 relative overflow-hidden">
+    <section class="pt-8 md:pt-14 pb-20 md:pb-40 relative overflow-hidden">
         <!-- Background Decor -->
         <div
             class="absolute top-0 right-0 w-[40%] h-[40%] bg-blue-600/[0.03] rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2">

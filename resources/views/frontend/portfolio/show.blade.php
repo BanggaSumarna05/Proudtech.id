@@ -1,9 +1,9 @@
 <x-frontend-layout>
-    <section class="py-20 md:py-40 relative overflow-hidden">
+    <section class="pt-4 md:pt-8 pb-20 md:pb-40 relative overflow-hidden">
         <!-- Background Decor -->
         <div class="absolute top-0 right-0 w-[50%] h-96 bg-blue-600/[0.02] blur-[150px]"></div>
 
-        <div class="max-w-7xl mx-auto px-6 lg:px-10 py-24 md:py-40 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-10 md:pt-16 pb-24 md:pb-40 relative z-10">
             <a href="{{ route('portfolio.index') }}"
                 class="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.3em] text-gray-500 hover:text-white mb-16 transition-all group">
                 <i class="fas fa-arrow-left group-hover:-translate-x-2 transition-transform"></i> Basis Data Arsip

@@ -9,7 +9,7 @@
             class="absolute bottom-0 left-0 w-[50%] h-[50%] bg-indigo-600/[0.03] rounded-full blur-[150px] translate-y-1/2 -translate-x-1/2">
         </div>
 
-        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 py-24 sm:py-32 relative z-10 w-full">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-10 pt-6 sm:pt-10 pb-24 sm:pb-32 relative z-10 w-full">
             <div class="flex flex-col items-center text-center">
                 <div data-aos="fade-down"
                     class="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full glass border border-white/10 mb-8 sm:mb-10 shadow-2xl shadow-blue-500/10">

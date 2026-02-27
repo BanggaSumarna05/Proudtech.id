@@ -1,6 +1,6 @@
 <x-frontend-layout>
     <!-- Hero About -->
-    <section class="py-24 md:py-48 relative overflow-hidden">
+    <section class="pt-8 md:pt-14 pb-24 md:pb-48 relative overflow-hidden">
         <!-- Background Decor -->
         <div
             class="absolute top-0 right-0 w-[60%] h-[60%] bg-blue-600/[0.03] rounded-full blur-[150px] -translate-y-1/2 translate-x-1/2">
