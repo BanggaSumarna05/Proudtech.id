@@ -13,9 +13,9 @@ use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 // ─── Public Routes ───────────────────────────────────────────────────────────
-Route::get('/up', function () {
-    return response('OK', 200);
-});
+// Route::get('/up', function () {
+//     return response('OK', 200);
+// });
 Route::get('/', [HomeController::class , 'index'])->name('home');
 Route::get('/services', [ServiceController::class , 'index'])->name('services.index');
 Route::get('/services/{service:slug}', [ServiceController::class , 'show'])->name('services.show');

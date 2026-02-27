@@ -91,7 +91,7 @@
                         class="flex items-center justify-center w-full min-h-[140px] px-6 py-4 border-2 border-dashed border-white/10 rounded-2xl bg-white/[0.02] hover:bg-white/[0.04] transition-all cursor-pointer">
                         <div class="text-center">
                             @if (isset($project) && $project->thumbnail)
-                                <img src="{{ asset('storage/' . $project->thumbnail) }}"
+                                <img src="{{ \Illuminate\Support\Facades\Storage::disk('s3')->url($project->thumbnail) }}"
                                     class="h-16 mx-auto rounded-lg mb-2 shadow-lg">
                                 <p class="text-[10px] text-gray-500 font-bold uppercase tracking-tight">Change Current
                                     Hero</p>
@@ -129,7 +129,8 @@
                 @foreach ($project->images as $img)
                     <div
                         class="relative group/img aspect-video rounded-xl overflow-hidden border border-white/5 shadow-2xl">
-                        <img src="{{ asset('storage/' . $img->image_path) }}" class="w-full h-full object-cover">
+                        <img src="{{ \Illuminate\Support\Facades\Storage::disk('s3')->url($img->image_path) }}"
+                            class="w-full h-full object-cover">
                         <div
                             class="absolute inset-0 bg-red-600/60 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
                             <button type="button"

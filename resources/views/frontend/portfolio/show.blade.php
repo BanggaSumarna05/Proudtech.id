@@ -29,7 +29,8 @@
             <!-- Main Feature Image -->
             <div class="mb-32 rounded-[3rem] overflow-hidden bg-[#0A0A0F] border border-white/5 shadow-2xl group">
                 @if ($project->thumbnail)
-                    <img src="{{ asset('storage/' . $project->thumbnail) }}" alt="{{ $project->title }}"
+                    <img src="{{ \Illuminate\Support\Facades\Storage::disk('s3')->url($project->thumbnail) }}"
+                        alt="{{ $project->title }}"
                         class="w-full h-auto object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-1000">
                 @else
                     <div
@@ -81,7 +82,8 @@
                                 @foreach ($project->images as $image)
                                     <div
                                         class="rounded-[2.5rem] overflow-hidden border border-white/5 bg-[#050505] shadow-2xl">
-                                        <img src="{{ asset('storage/' . $image->image_path) }}" alt="Project Artifact"
+                                        <img src="{{ \Illuminate\Support\Facades\Storage::disk('s3')->url($image->image_path) }}"
+                                            alt="Project Artifact"
                                             class="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity duration-700">
                                     </div>
                                 @endforeach

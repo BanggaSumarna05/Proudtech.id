@@ -196,7 +196,8 @@
                         class="group relative rounded-[3rem] overflow-hidden bg-slate-900 border border-white/5 transition-all duration-700 hover:shadow-2xl hover:shadow-blue-500/10">
                         <div class="aspect-[16/10] overflow-hidden relative">
                             @if ($project->thumbnail)
-                                <img src="{{ Storage::url($project->thumbnail) }}" alt="{{ $project->title }}"
+                                <img src="{{ \Illuminate\Support\Facades\Storage::disk('s3')->url($project->thumbnail) }}"
+                                    alt="{{ $project->title }}"
                                     class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-[1.5s]">
                             @endif
                             <div

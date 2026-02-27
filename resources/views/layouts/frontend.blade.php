@@ -19,7 +19,8 @@
     @endphp
 
     @if ($favicon)
-        <link rel="icon" type="image/x-icon" href="{{ asset('storage/' . $favicon) }}">
+        <link rel="icon" type="image/x-icon"
+            href="{{ \Illuminate\Support\Facades\Storage::disk('s3')->url($favicon) }}">
     @endif
 
     <!-- Canonical URL -->
@@ -193,7 +194,7 @@
                 <div class="flex items-center">
                     <a href="{{ route('home') }}" class="flex items-center gap-3 group">
                         @if ($logo)
-                            <img src="{{ asset('storage/' . $logo) }}"
+                            <img src="{{ \Illuminate\Support\Facades\Storage::disk('s3')->url($logo) }}"
                                 alt="{{ \App\Models\Setting::get('company_name', 'Proud Tech') }}"
                                 class="h-10 w-auto group-hover:scale-110 transition-transform duration-500 glow-blue">
                         @else
@@ -288,7 +289,8 @@
                 <div class="lg:col-span-5">
                     <div class="flex items-center gap-3 mb-8">
                         @if ($logo = \App\Models\Setting::get('company_logo'))
-                            <img src="{{ asset('storage/' . $logo) }}" class="h-10 w-auto glow-blue">
+                            <img src="{{ \Illuminate\Support\Facades\Storage::disk('s3')->url($logo) }}"
+                                class="h-10 w-auto glow-blue">
                         @else
                             <div
                                 class="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center shadow-2xl shadow-blue-500/20">

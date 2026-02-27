@@ -46,7 +46,7 @@
                                         <div
                                             class="relative w-24 h-14 rounded-lg overflow-hidden border border-white/5 bg-gray-900 flex-shrink-0">
                                             @if ($project->thumbnail)
-                                                <img src="{{ asset('storage/' . $project->thumbnail) }}"
+                                                <img src="{{ \Illuminate\Support\Facades\Storage::disk('s3')->url($project->thumbnail) }}"
                                                     alt="{{ $project->title }}" class="w-full h-full object-cover">
                                             @else
                                                 <div class="w-full h-full flex items-center justify-center">

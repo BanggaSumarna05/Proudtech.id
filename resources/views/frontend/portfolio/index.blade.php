@@ -27,7 +27,8 @@
                         <!-- Image Container -->
                         <div class="aspect-[16/10] overflow-hidden relative">
                             @if ($project->thumbnail)
-                                <img src="{{ asset('storage/' . $project->thumbnail) }}" alt="{{ $project->title }}"
+                                <img src="{{ \Illuminate\Support\Facades\Storage::disk('s3')->url($project->thumbnail) }}"
+                                    alt="{{ $project->title }}"
                                     class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-[1.5s] opacity-40 group-hover:opacity-100">
                             @else
                                 <div

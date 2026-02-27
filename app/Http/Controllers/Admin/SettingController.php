@@ -50,10 +50,10 @@ class SettingController extends Controller
                 // Delete old file
                 $oldPath = Setting::get($fileKey);
                 if ($oldPath) {
-                    Storage::disk('public')->delete($oldPath);
+                    Storage::disk('s3')->delete($oldPath);
                 }
 
-                $path = $request->file($fileKey)->store('settings', 'public');
+                $path = $request->file($fileKey)->store('settings', 's3');
                 Setting::set($fileKey, $path);
             }
         }

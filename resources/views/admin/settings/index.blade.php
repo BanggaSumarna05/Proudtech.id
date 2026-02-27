@@ -36,7 +36,7 @@
                             <div
                                 class="aspect-video rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-center overflow-hidden mb-4">
                                 @if (isset($settings['company_logo']))
-                                    <img src="{{ asset('storage/' . $settings['company_logo']) }}"
+                                    <img src="{{ \Illuminate\Support\Facades\Storage::disk('s3')->url($settings['company_logo']) }}"
                                         class="max-h-20 object-contain" id="logo_preview">
                                 @else
                                     <div class="text-gray-700 font-black italic text-2xl" id="logo_placeholder">PROUD
@@ -62,7 +62,7 @@
                             <div
                                 class="aspect-video rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-center overflow-hidden mb-4">
                                 @if (isset($settings['company_favicon']))
-                                    <img src="{{ asset('storage/' . $settings['company_favicon']) }}"
+                                    <img src="{{ \Illuminate\Support\Facades\Storage::disk('s3')->url($settings['company_favicon']) }}"
                                         class="w-12 h-12 object-contain" id="favicon_preview">
                                 @else
                                     <div class="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center text-white font-black text-xl"

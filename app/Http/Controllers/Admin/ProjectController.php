@@ -31,14 +31,14 @@ class ProjectController extends Controller
         $data['tech_stack'] = array_filter(explode("\n", $data['tech_stack'] ?? ''));
 
         if ($request->hasFile('thumbnail')) {
-            $data['thumbnail'] = $request->file('thumbnail')->store('projects/thumbnails', 'public');
+            $data['thumbnail'] = $request->file('thumbnail')->store('projects/thumbnails', 's3');
         }
 
         $project = Project::create($data);
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $i => $image) {
-                $path = $image->store('projects/gallery', 'public');
+                $path = $image->store('projects/gallery', 's3');
                 $project->images()->create(['image_path' => $path, 'order' => $i]);
             }
         }
@@ -59,9 +59,9 @@ class ProjectController extends Controller
 
         if ($request->hasFile('thumbnail')) {
             if ($project->thumbnail) {
-                Storage::disk('public')->delete($project->thumbnail);
+                Storage::disk('s3')->delete($project->thumbnail);
             }
-            $data['thumbnail'] = $request->file('thumbnail')->store('projects/thumbnails', 'public');
+            $data['thumbnail'] = $request->file('thumbnail')->store('projects/thumbnails', 's3');
         }
 
         $data['slug'] = Str::slug($data['title']);
@@ -70,7 +70,7 @@ class ProjectController extends Controller
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $i => $image) {
-                $path = $image->store('projects/gallery', 'public');
+                $path = $image->store('projects/gallery', 's3');
                 $project->images()->create(['image_path' => $path, 'order' => $project->images()->count() + $i]);
             }
         }
@@ -81,10 +81,10 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         if ($project->thumbnail) {
-            Storage::disk('public')->delete($project->thumbnail);
+            Storage::disk('s3')->delete($project->thumbnail);
         }
         foreach ($project->images as $image) {
-            Storage::disk('public')->delete($image->image_path);
+            Storage::disk('s3')->delete($image->image_path);
         }
         $project->delete();
         return redirect()->route('admin.projects.index')->with('success', 'Proyek berhasil dihapus.');
@@ -92,7 +92,7 @@ class ProjectController extends Controller
 
     public function destroyImage(Project $project, ProjectImage $image)
     {
-        Storage::disk('public')->delete($image->image_path);
+        Storage::disk('s3')->delete($image->image_path);
         $image->delete();
         return back()->with('success', 'Gambar berhasil dihapus.');
     }
