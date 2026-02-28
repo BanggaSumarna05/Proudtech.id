@@ -12,7 +12,13 @@
         content="digital agency indonesia, jasa pembuatan website premium, software developer jakarta, agensi kreatif, pengembangan aplikasi web">
     <meta name="author" content="Proud Tech">
     <meta name="robots" content="index, follow">
-
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KTF3JJDT');</script>
+    <!-- End Google Tag Manager -->
     @php
         $logo = \App\Models\Setting::get('company_logo');
         $favicon = \App\Models\Setting::get('company_favicon');
@@ -173,6 +179,10 @@
 </head>
 
 <body class="antialiased bg-[#020617] text-slate-300 min-h-screen selection:bg-blue-500/30 selection:text-white">
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KTF3JJDT"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <!-- Background System -->
     <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-[#020617]"></div>
